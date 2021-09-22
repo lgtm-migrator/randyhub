@@ -8,9 +8,9 @@
   const contributorsTable = document.querySelector('#contributors-table > tbody');
 
   
-  const repo = await fetch('https://api.github.com/repos/aagavin/randyhub-live.github.io').then(r => r.json());
-  const issues = await fetch('https://api.github.com/repos/aagavin/randyhub-live.github.io/issues').then(r => r.json());
-  const contributors = await fetch('https://api.github.com/repos/aagavin/randyhub-live.github.io/contributors').then(r => r.json());
+  const repo = await fetch('https://api.github.com/repos/aagavin/aagavin.github.io').then(r => r.json());
+  const issues = await fetch('https://api.github.com/repos/aagavin/aagavin.github.io/issues').then(r => r.json());
+  const contributors = await fetch('https://api.github.com/repos/aagavin/aagavin.github.io/contributors').then(r => r.json());
   contributors.sort((a, b) => a.contributions < b.contributions);
   
   title.textContent = repo.name;
