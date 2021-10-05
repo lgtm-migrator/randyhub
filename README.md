@@ -1,2 +1,2 @@
-# randyhub-live.io
+# randyhub.live
 Property of Chaos Chat
