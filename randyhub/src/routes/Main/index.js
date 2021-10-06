@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import React, {
   PureComponent,
 } from 'react';
-import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
 
 class Main extends PureComponent {
   render () {
     return (
-      <div className={`${styles['body']}`}>
-        <h1 className={`${styles['title']}`}>RANDY</h1>
+      <div className={`${styles.body}`}>
+        <h1 className={`${styles.title}`}>RANDY</h1>
       </div>
     );
   }

@@ -2,32 +2,42 @@ import PropTypes from 'prop-types';
 import React, {
   PureComponent,
 } from 'react';
-import styles from './styles.module.scss';
+import './styles.module.scss';
 
 class CovidCounter extends PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = {
-      covidData: []
+      covidData: [],
     };
   }
 
   componentDidMount () {
     const covidResponse = fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=CA')
-      .then(r => r.json())
-      .then(r => r.locations)
-      .then(r => r.map(x => ({ province: x.province, ...x.latest })))
-      .catch(err => console.error(`COVID ERROR: ${JSON.stringify(err)}`));
+      .then((r) => {
+        return r.json();
+      })
+      .then((r) => {
+        return r.locations;
+      })
+      .then((r) => {
+        return r.map((x) => {
+          return {province: x.province,
+            ...x.latest};
+        });
+      })
+      .catch((err) => {
+        return console.error(`COVID ERROR: ${JSON.stringify(err)}`);
+      });
 
     Promise.resolve(covidResponse).then((values) => {
       this.setState({
         covidData: values,
       });
-    })
+    });
   }
 
   render () {
-    console.log(this.state.covidData);
     return (
       <>
         <h1>COVID DASHBOARD for Canada</h1>
@@ -36,33 +46,32 @@ class CovidCounter extends PureComponent {
             <tr>
               { this.state.covidData.length !== 0 ?
                 Object.keys(this.state.covidData[0]).map((title) => {
-                  return <th>{title}</th>
-                })
-                : <th>Retrieving Data</th>
-              }
+                  return <th key='title'>{title}</th>;
+                }) :
+                <th>Retrieving Data</th>}
             </tr>
           </thead>
           <tbody>
-              {
-                this.state.covidData.map((c) => {
-                  return (
-                    <tr>
-                      {
-                        Object.values(c).map((value) => {
-                          return (
-                            <td>{value}</td>
-                          );
-                        })
-                      }
-                    </tr>
-                  );
-                })
-              }
+            {
+              this.state.covidData.map((c) => {
+                return (
+                  <tr>
+                    {
+                      Object.values(c).map((value) => {
+                        return (
+                          <td key='value'>{value}</td>
+                        );
+                      })
+                    }
+                  </tr>
+                );
+              })
+            }
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="100%">
-                source: <a target="_blank" href="https://systems.jhu.edu/research/public-health/ncov/" rel="noreferrer">Johns Hopkins University</a>
+              <td colSpan='100%'>
+                source: <a href='https://systems.jhu.edu/research/public-health/ncov/' rel='noreferrer' target='_blank'>Johns Hopkins University</a>
               </td>
             </tr>
           </tfoot>
