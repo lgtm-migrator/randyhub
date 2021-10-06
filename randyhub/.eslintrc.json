@@ -15,7 +15,8 @@
     "sort-keys-fix"
   ],
   "env": {
-    "browser": true
+    "browser": true,
+    "es6": true
   },
   // "ignorePatterns": ["*.js"], // Disables tests run for emergency builds! 
   "rules": {

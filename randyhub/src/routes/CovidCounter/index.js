@@ -14,16 +14,16 @@ class CovidCounter extends PureComponent {
 
   componentDidMount () {
     const covidResponse = fetch('https://coronavirus-tracker-api.herokuapp.com/v2/locations?country_code=CA')
-      .then((r) => {
-        return r.json();
+      .then((response) => {
+        return response.json();
       })
-      .then((r) => {
-        return r.locations;
+      .then((response) => {
+        return response.locations;
       })
-      .then((r) => {
-        return r.map((x) => {
-          return {province: x.province,
-            ...x.latest};
+      .then((response) => {
+        return response.map((data) => {
+          return {province: data.province,
+            ...data.latest};
         });
       })
       .catch((err) => {
@@ -53,11 +53,11 @@ class CovidCounter extends PureComponent {
           </thead>
           <tbody>
             {
-              this.state.covidData.map((c) => {
+              this.state.covidData.map((covidLocation) => {
                 return (
                   <tr>
                     {
-                      Object.values(c).map((value) => {
+                      Object.values(covidLocation).map((value) => {
                         return (
                           <td key='value'>{value}</td>
                         );

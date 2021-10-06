@@ -19,14 +19,14 @@ class GitRepo extends PureComponent {
   }
 
   componentDidMount () {
-    const repo = fetch('https://api.github.com/repos/aagavin/randyhub').then((r) => {
-      return r.json();
+    const repo = fetch('https://api.github.com/repos/aagavin/randyhub').then((response) => {
+      return response.json();
     });
-    const issues = fetch('https://api.github.com/repos/aagavin/randyhub/issues').then((r) => {
-      return r.json();
+    const issues = fetch('https://api.github.com/repos/aagavin/randyhub/issues').then((response) => {
+      return response.json();
     });
-    const contributors = fetch('https://api.github.com/repos/aagavin/randyhub/contributors').then((r) => {
-      return r.json();
+    const contributors = fetch('https://api.github.com/repos/aagavin/randyhub/contributors').then((response) => {
+      return response.json();
     });
 
     Promise.all([repo, issues, contributors]).then((values) => {
