@@ -18,6 +18,11 @@
     "browser": true,
     "es6": true
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   // "ignorePatterns": ["*.js"], // Disables tests run for emergency builds! 
   "rules": {
     "react-hooks/exhaustive-deps": 1,

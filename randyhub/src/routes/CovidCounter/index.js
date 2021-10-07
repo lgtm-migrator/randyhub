@@ -25,13 +25,10 @@ class CovidCounter extends PureComponent {
           return {province: data.province,
             ...data.latest};
         });
-      })
-      .catch((err) => {
-        return console.error(`COVID ERROR: ${JSON.stringify(err)}`);
       });
 
     Promise.resolve(covidResponse).then((values) => {
-      this.setState({
+      return this.setState({
         covidData: values,
       });
     });
@@ -44,22 +41,23 @@ class CovidCounter extends PureComponent {
         <table>
           <thead>
             <tr>
-              { this.state.covidData.length !== 0 ?
+              { this.state.covidData.length === 0 ?
+                <th>Retrieving Data</th> :
                 Object.keys(this.state.covidData[0]).map((title) => {
-                  return <th key='title'>{title}</th>;
-                }) :
-                <th>Retrieving Data</th>}
+                  return <th key={title}>{title}</th>;
+                })}
             </tr>
           </thead>
           <tbody>
             {
               this.state.covidData.map((covidLocation) => {
                 return (
-                  <tr>
+                  <tr key={covidLocation.province}>
                     {
-                      Object.values(covidLocation).map((value) => {
+                      Object.values(covidLocation).map((value, index) => {
                         return (
-                          <td key='value'>{value}</td>
+                          // eslint-disable-next-line react/no-array-index-key
+                          <td key={`${covidLocation.province}-${index}`}>{value}</td>
                         );
                       })
                     }
