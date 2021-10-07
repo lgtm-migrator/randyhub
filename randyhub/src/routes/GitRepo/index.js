@@ -46,7 +46,8 @@ class GitRepo extends PureComponent {
           url: contributor.html_url,
         };
       });
-      this.setState({
+
+      return this.setState({
         contributorsData,
         description,
         issuesData,
@@ -72,7 +73,7 @@ class GitRepo extends PureComponent {
           <tbody>
             {
               this.state.issuesData.map((issue) => {
-                return <tr>
+                return <tr key={`${issue.name}-${issue.createdAt}`}>
                   <td>{issue.name}</td>
                   <td>{issue.createdAt}</td>
                   <td>{issue.state}</td>
@@ -93,7 +94,7 @@ class GitRepo extends PureComponent {
           <tbody>
             {
               this.state.contributorsData.map((contributor) => {
-                return <tr>
+                return <tr key={contributor.login}>
                   <td><a href={contributor.url}>{contributor.login}</a></td>
                   <td>{contributor.contributions}</td>
                 </tr>;
