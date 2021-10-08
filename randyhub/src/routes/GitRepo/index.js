@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React, {
   PureComponent,
 } from 'react';
@@ -8,7 +7,7 @@ import {
 import './styles.module.scss';
 
 class GitRepo extends PureComponent {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       contributorsData: [],
@@ -18,34 +17,24 @@ class GitRepo extends PureComponent {
     };
   }
 
-  componentDidMount () {
-    const repo = fetch('https://api.github.com/repos/aagavin/randyhub').then((response) => {
-      return response.json();
-    });
-    const issues = fetch('https://api.github.com/repos/aagavin/randyhub/issues').then((response) => {
-      return response.json();
-    });
-    const contributors = fetch('https://api.github.com/repos/aagavin/randyhub/contributors').then((response) => {
-      return response.json();
-    });
+  componentDidMount() {
+    const repo = fetch('https://api.github.com/repos/aagavin/randyhub').then((response) => response.json());
+    const issues = fetch('https://api.github.com/repos/aagavin/randyhub/issues').then((response) => response.json());
+    const contributors = fetch('https://api.github.com/repos/aagavin/randyhub/contributors').then((response) => response.json());
 
     Promise.all([repo, issues, contributors]).then((values) => {
       const title = values[0].name;
-      const description = values[0].description;
-      const issuesData = values[1].map((issue) => {
-        return {
-          createdAt: new Date(issue.created_at).toLocaleDateString(),
-          name: issue.user.login,
-          state: issue.state,
-        };
-      });
-      const contributorsData = values[2].map((contributor) => {
-        return {
-          contributions: contributor.contributions,
-          login: contributor.login,
-          url: contributor.html_url,
-        };
-      });
+      const { description } = values[0];
+      const issuesData = values[1].map((issue) => ({
+        createdAt: new Date(issue.created_at).toLocaleDateString(),
+        name: issue.user.login,
+        state: issue.state,
+      }));
+      const contributorsData = values[2].map((contributor) => ({
+        contributions: contributor.contributions,
+        login: contributor.login,
+        url: contributor.html_url,
+      }));
 
       return this.setState({
         contributorsData,
@@ -56,12 +45,15 @@ class GitRepo extends PureComponent {
     });
   }
 
-  render () {
+  render() {
+    const {
+      issuesData, title, description, contributorsData,
+    } = this.state;
     return (
       <>
-        <h1>{this.state.title}</h1>
-        <h2>{this.state.description}</h2>
-        <table id='issues-table'>
+        <h1>{title}</h1>
+        <h2>{description}</h2>
+        <table id="issues-table">
           <caption>Current Open Issues</caption>
           <thead>
             <tr>
@@ -72,19 +64,25 @@ class GitRepo extends PureComponent {
           </thead>
           <tbody>
             {
-              this.state.issuesData.map((issue) => {
-                return <tr key={`${issue.name}-${issue.createdAt}`}>
+              issuesData.map((issue) => (
+                <tr key={`${issue.name}-${issue.createdAt}`}>
                   <td>{issue.name}</td>
                   <td>{issue.createdAt}</td>
                   <td>{issue.state}</td>
-                </tr>;
-              })
+                </tr>
+              ))
             }
           </tbody>
         </table>
-        <br /><br /><br />
-        <table id='contributors-table'>
-          <caption>Top Contributors to <Link target='_blank' to='/'>randyhub.live</Link></caption>
+        <br />
+        <br />
+        <br />
+        <table id="contributors-table">
+          <caption>
+            Top Contributors to
+            {' '}
+            <Link target="_blank" to="/">randyhub.live</Link>
+          </caption>
           <thead>
             <tr>
               <th>User</th>
@@ -93,12 +91,12 @@ class GitRepo extends PureComponent {
           </thead>
           <tbody>
             {
-              this.state.contributorsData.map((contributor) => {
-                return <tr key={contributor.login}>
+              contributorsData.map((contributor) => (
+                <tr key={contributor.login}>
                   <td><a href={contributor.url}>{contributor.login}</a></td>
                   <td>{contributor.contributions}</td>
-                </tr>;
-              })
+                </tr>
+              ))
             }
           </tbody>
         </table>
@@ -106,11 +104,5 @@ class GitRepo extends PureComponent {
     );
   }
 }
-
-GitRepo.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string,
-  }).isRequired,
-};
 
 export default GitRepo;
