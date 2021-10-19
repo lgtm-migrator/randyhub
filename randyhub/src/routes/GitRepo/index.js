@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './styles.module.scss';
+import Links from '../../common/Links';
+import styles from './styles.module.scss';
 
 const GitRepo = () => {
   const [contributorsData, setContributorsData] = useState([]);
@@ -48,55 +49,58 @@ const GitRepo = () => {
 
   return (
     <>
-      <h1>{title}</h1>
-      <h2>{description}</h2>
-      <table id="issues-table">
-        <caption>Current Open Issues</caption>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Created At</th>
-            <th>State</th>
-          </tr>
-        </thead>
-        <tbody>
-          {issuesData.map((issue) => (
-            <tr key={`${issue.name}-${issue.createdAt}`}>
-              <td>{issue.name}</td>
-              <td>{issue.createdAt}</td>
-              <td>{issue.state}</td>
+      <div className={`${styles['git-repo']}`}>
+        <h1>{title}</h1>
+        <h2>{description}</h2>
+        <table id="issues-table">
+          <caption>Current Open Issues</caption>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Created At</th>
+              <th>State</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <br />
-      <br />
-      <br />
-      <table id="contributors-table">
-        <caption>
-          Top Contributors to
-          {' '}
-          <Link target="_blank" to="/">
-            randyhub.live
-          </Link>
-        </caption>
-        <thead>
-          <tr>
-            <th>User</th>
-            <th># of contributions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {contributorsData.map((contributor) => (
-            <tr key={contributor.login}>
-              <td>
-                <a href={contributor.url}>{contributor.login}</a>
-              </td>
-              <td>{contributor.contributions}</td>
+          </thead>
+          <tbody>
+            {issuesData.map((issue) => (
+              <tr key={`${issue.name}-${issue.createdAt}`}>
+                <td>{issue.name}</td>
+                <td>{issue.createdAt}</td>
+                <td>{issue.state}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <br />
+        <br />
+        <br />
+        <table id="contributors-table">
+          <caption>
+            Top Contributors to
+            {' '}
+            <Link target="_blank" to="/">
+              randyhub.live
+            </Link>
+          </caption>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th># of contributions</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {contributorsData.map((contributor) => (
+              <tr key={contributor.login}>
+                <td>
+                  <a href={contributor.url}>{contributor.login}</a>
+                </td>
+                <td>{contributor.contributions}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <Links />
     </>
   );
 };

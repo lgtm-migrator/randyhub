@@ -1,0 +1,40 @@
+.links {
+  padding-left: 50px;
+  text-transform: uppercase;
+  font-family: bicyclette, sans-serif;
+  font-style: normal;
+  font-size: 2em;
+  letter-spacing: 1px;
+
+  h2 {
+    border-bottom: 1px #333 solid;
+    width: 90vw;
+    mix-blend-mode: color-burn;
+  }
+
+  a {
+    font-weight: 500;
+    cursor: pointer;
+    color: #111;
+    text-decoration: none;
+    transition: 0.2s;
+
+
+    &:hover {
+      font-weight: 800;
+      color: #1a3f3d;
+    }
+  }
+}
+
+@media (max-width: 798px) {
+  .links {
+    padding-left: 0;
+    font-size: 1em;
+    text-align: center;
+
+    h2 {
+      width: 100vw;
+    }
+  }
+}
