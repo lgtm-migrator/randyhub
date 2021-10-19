@@ -7,7 +7,7 @@
   letter-spacing: 1px;
 
   h2 {
-    border-bottom: 1px #333 solid;
+    border-bottom: 1px #333333 solid;
     width: 90vw;
     mix-blend-mode: color-burn;
   }
@@ -15,10 +15,9 @@
   a {
     font-weight: 500;
     cursor: pointer;
-    color: #111;
+    color: #111111;
     text-decoration: none;
     transition: 0.2s;
-
 
     &:hover {
       font-weight: 800;

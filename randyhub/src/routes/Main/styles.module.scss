@@ -5,7 +5,7 @@
 }
 
 .title {
-  background: -webkit-linear-gradient(#333, #111);
+  background: -webkit-linear-gradient(#333333, #111111);
   background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 14.5vw;
@@ -33,7 +33,7 @@
 }
 
 .subtitle {
-  color: #111;
+  color: #111111;
   font-size: 3em;
   margin-right: 250px;
   font-family: meno-banner-condensed, serif;
@@ -51,7 +51,7 @@
     margin-bottom: 0;
 
     .italics {
-      padding-right: 0px;
+      padding-right: 0;
       font-family: bicyclette, sans-serif;
       font-weight: 500;
       letter-spacing: 1px;

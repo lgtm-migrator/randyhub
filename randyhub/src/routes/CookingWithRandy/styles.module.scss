@@ -2,23 +2,24 @@
 .cooking-with-randy {
   text-align: center;
   padding: 0;
-  color: #222;
+  color: #222222;
   line-height: 2em;
 
   .title {
-    color: #333;
+    color: #333333;
     font-weight: 500;
     font-size: 64px;
     line-height: 1em;
     text-align: center;
     margin-bottom: 2em;
   }
-  
+
   .italics {
     font-style: italic;
   }
 
-  ol, ul {
+  ol,
+  ul {
     list-style-position: inside;
   }
 }
