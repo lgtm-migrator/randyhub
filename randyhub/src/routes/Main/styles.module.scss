@@ -1,20 +1,70 @@
 .body {
-  background-image: url('../../assets/bestpic.png');
-  background-repeat: repeat;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
 }
 
 .title {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  color: white;
-  font-size: 64px;
-  text-align: center;
+  background: -webkit-linear-gradient(#333333, #111111);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 14.5vw;
+  left: 50px;
+  margin-top: -5vh;
+  margin-bottom: -10vh;
+  padding-left: 2vw;
+
+  .italics {
+    font-family: meno-banner, serif;
+    font-weight: 800;
+    font-style: normal;
+    letter-spacing: -40px;
+    padding-right: 40px;
+  }
+
+  .bold {
+    font-family: bicyclette, sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 17vw;
+    letter-spacing: -10px;
+    bottom: 20px;
+  }
 }
 
-.links {
-  background: white;
-  text-align: center;
+.subtitle {
+  color: #111111;
+  font-size: 3em;
+  margin-right: 250px;
+  font-family: meno-banner-condensed, serif;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 1px;
+  text-align: right;
+}
+
+@media (max-width: 798px) {
+  .title {
+    text-align: center;
+    margin: 20px auto;
+    font-size: 3em;
+    margin-bottom: 0;
+
+    .italics {
+      padding-right: 0;
+      font-family: bicyclette, sans-serif;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    .bold {
+      font-size: 1em;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+  }
+
+  .subtitle {
+    display: none;
+  }
 }
