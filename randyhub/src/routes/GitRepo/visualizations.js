@@ -92,7 +92,7 @@ const marblesVisualization = (contributionsData) => {
   marbles = shuffleArray(marbles);
 
   return (
-    <div className={`${styles.circleFlexRow}`}>
+    <div className={`${styles.circleFlexRow} ${styles.jar}`}>
       {marbles.map((marble) => (
         <div
           key={marble.key}
