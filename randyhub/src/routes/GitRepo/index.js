@@ -45,7 +45,7 @@ const GitRepo = () => {
     };
 
     fetchRepoData();
-  });
+  }, []);
 
   return (
     <>
