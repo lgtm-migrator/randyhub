@@ -70,3 +70,45 @@
     }
   }
 }
+
+.percentageCircle {
+  border-radius: 50%;
+  border: 0.25em solid black;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+  padding: 0.3em 0.3em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.marbleCircle {
+  border-radius: 50%;
+  border: 0.25em solid black;
+  text-align: center;
+  word-wrap: break-word;
+  overflow: hidden;
+  padding: 0.3em 0.3em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  max-height: 1em;
+  min-height: 1em;
+  min-width: 1em;
+  max-width: 1em;
+  height: 1em;
+  width: 1em;
+}
+
+.circleFlexRow {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 0;
+  flex-wrap: wrap;
+  width: 90%;
+}
