@@ -1,0 +1,114 @@
+.cursor-circle {
+  position: fixed;
+  background-color: white;
+  width: 10px;
+  height: 10px;
+  left: -10px;
+  top: -10px;
+  border-radius: 100%;
+  z-index: 10000;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  mix-blend-mode: difference;
+
+  &.disabled {
+    display: none;
+  }
+}
+
+.cursor-circle-follow {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  left: -60px;
+  top: -60px;
+  border-radius: 100%;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  transform: scale(1);
+  transform-style: preserve-3d;
+
+  &.disabled {
+    display: none;
+  }
+}
+
+.cursor {
+  pointer-events: none;
+}
+
+.toggle-cursor {
+  position: fixed;
+  bottom: 100px;
+  right: 100px;
+}
+
+@media (max-width: 800px),
+       (max-height: 500px) {
+  .toggle-cursor {
+    display: none;
+  }
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch #slider-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  z-index: 12000;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+#slider-checkbox:checked + .slider {
+  background-image: url('../../assets/CoolBro.jpg');
+}
+
+#slider-checkbox:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.slider-hint {
+  position: absolute;
+  width: 50px;
+  top: -50px;
+}
