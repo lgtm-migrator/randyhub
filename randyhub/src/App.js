@@ -17,6 +17,7 @@ const App = () => (
           <Route component={React.lazy(() => import('./routes/CookingWithRandy'))} path="/cooking-with-randy" />
           <Route component={React.lazy(() => import('./routes/GitRepo'))} path="/git-repo" />
           <Route component={React.lazy(() => import('./routes/CovidCounter'))} path="/covid-counter" />
+          <Route component={React.lazy(() => import('./routes/AuroraWatch'))} path="/aurora-watch" />
         </Switch>
       </Suspense>
     </BrowserRouter>
