@@ -5,4 +5,16 @@
         font-size: 5rem;
         text-align: center;
     }
+
+    input[type="search" i] {
+        font-size: 3rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        border: 1px solid #333;
+        display: block;
+        width: 75%;
+    }
+
+
 }
