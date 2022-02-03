@@ -16,5 +16,31 @@
         width: 75%;
     }
 
+    li {
+        list-style-type: none;
+        display: block;
+        border: 1px #111 solid;
+        border-radius: .2em;
+        margin: .3em;
+        padding: .5em;
+    }
+    li:hover {
+        background-color: rgba(255, 255, 255, 50);
+        cursor: pointer;
+    }
+
+    li img {
+        display: inline-block;
+    }
+    li div {
+        display: inline-block;
+        vertical-align: top;
+        margin-top: 0;
+        padding-left: .5em;
+    }
+    li h2 {
+        margin-top: 0;
+    }
+
 
 }

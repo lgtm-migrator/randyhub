@@ -1,22 +1,34 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Links from '../../common/Links';
 import styles from './styles.module.scss';
 
-const MoviesWithRandy = () => {
+const MoviesWithRandy = (props) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
 
-  const getSearchResults = () => (fetch(`https://v2.sg.media-imdb.com/suggestion/${query.charAt(0)}/${query.replace(' ', '_')}.json`, {
-    credentials: 'omit',
-    headers: {
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:96.0) Gecko/20100101 Firefox/96.0',
-      Accept: 'application/json, text/plain, */*',
-      'Accept-Language': 'en-CA,en-US;q=0.7,en;q=0.3',
-    },
-    referrer: 'https://www.imdb.com/',
-    method: 'GET',
-  }).then((r) => r.json())
-  );
+  useEffect(() => {
+    const r = sessionStorage.getItem('searchResults');
+    setResults(JSON.parse(r) || []);
+  }, []);
+
+  useEffect(() => {
+    sessionStorage.setItem('searchResults', JSON.stringify(results));
+  }, [results]);
+
+  const getSearchResults = () => {
+    const url = `https://proxy.aagavin.workers.dev/?https://v2.sg.media-imdb.com/suggestion/${query.charAt(0)}/${query.replace(' ', '_')}.json`;
+
+    return fetch(url, {
+      credentials: 'omit',
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:96.0) Gecko/20100101 Firefox/96.0',
+        Accept: 'application/json, text/plain, */*',
+        'Accept-Language': 'en-CA,en-US;q=0.7,en;q=0.3',
+      },
+      referrer: 'https://www.imdb.com/',
+      method: 'GET',
+    }).then((r) => r.json());
+  };
 
   const onSearch = async (e) => {
     setQuery(e.target.value);
@@ -24,6 +36,13 @@ const MoviesWithRandy = () => {
       const response = await getSearchResults();
       setResults(response?.d ?? []);
     }
+  };
+
+  const mediaClick = (id) => {
+    console.log(id);
+
+    // eslint-disable-next-line react/prop-types
+    props?.history?.push('/snack-of-champions');
   };
 
   return (
@@ -34,12 +53,30 @@ const MoviesWithRandy = () => {
 
         <input type="search" id="search" name="q" aria-label="Search through site content" onChange={onSearch} />
         <ul>
-          {results.map((result) => (
-            <li id={result.id}>
-              <img alt={`Poster for: ${result.l}`} src={result.i?.imageUrl.replace('_V1_', '_V1_UX50_,268_AL')} />
-              {result.l}
-            </li>
-          ))}
+          {results.map((result) => {
+            // only get media and not silly imdb stuff
+            if (!['tt', 'nm'].includes(result.id.substring(0, 2))) {
+              return null;
+            }
+
+            return (
+              <li id={result.id}>
+                <div
+                  onClick={() => mediaClick(result.id)}
+                  onKeyPress={() => mediaClick(result.id)}
+                  role="button"
+                  tabIndex="0"
+                >
+                  <img alt={`Poster for: ${result.l}`} src={result.i?.imageUrl.replace('_V1_', '_V1_UX50_,268_AL')} />
+                  <div>
+                    { /* eslint-disable-next-line react/jsx-one-expression-per-line */}
+                    <h2>{result.l} <small>{result?.yr}</small></h2>
+                    <p>{result.s}</p>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <Links />
