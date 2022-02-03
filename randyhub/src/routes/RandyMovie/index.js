@@ -71,7 +71,7 @@ const MoviesWithRandy = (props) => {
                   <div>
                     { /* eslint-disable-next-line react/jsx-one-expression-per-line */}
                     <h2>{result.l} <small>{result?.yr}</small></h2>
-                    <p>{result.s}</p>
+                    <p>{result.s.split(',').map((_) => 'Randy Hu')}</p>
                   </div>
                 </div>
               </li>
