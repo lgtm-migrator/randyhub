@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import Links from '../../common/Links';
 import styles from './styles.module.scss';
 
@@ -39,10 +40,8 @@ const MoviesWithRandy = (props) => {
   };
 
   const mediaClick = (id) => {
-    console.log(id);
-
-    // eslint-disable-next-line react/prop-types
-    props?.history?.push('/snack-of-champions');
+    const path = `/movies-with-randy/${id}`;
+    props?.history?.push(path);
   };
 
   return (
@@ -84,4 +83,4 @@ const MoviesWithRandy = (props) => {
   );
 };
 
-export default MoviesWithRandy;
+export default withRouter(MoviesWithRandy);
