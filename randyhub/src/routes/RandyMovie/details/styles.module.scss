@@ -1,0 +1,27 @@
+
+.movie-details {
+    h1 {
+        display: block;
+        text-align: center;
+        font-size: 6rem;
+        margin-top: .2em;
+    }
+
+    div::before {
+        content: '<--';
+    }
+
+    div {
+        display: block;
+        color: black;
+        font-weight: bolder;
+        background-color: rgb(151, 131, 17, .2);
+        cursor: pointer;
+        width: 100%;
+        padding: .5em;
+    }
+
+    img {
+        width: 100%;
+    }
+}
