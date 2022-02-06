@@ -10,6 +10,7 @@ const Links = () => (
     <h2><Link to="/cooking-with-randy">Cooking with Randy</Link></h2>
     <h2><Link to="/git-repo">Randy Hub repo info</Link></h2>
     <h2><Link to="/aurora-watch">Aurorawatch</Link></h2>
+    <h2><Link to="/movies-with-randy">Movies with Randy</Link></h2>
   </div>
 );
 
