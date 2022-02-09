@@ -63,6 +63,5 @@
     "stylelint-csstree-validator": "^1.9.0",
     "stylelint-scss": "^3.19.0",
     "webpack-bundle-analyzer": "^4.4.0"
-  },
-  "proxy": "https://v2.sg.media-imdb.com"
+  }
 }

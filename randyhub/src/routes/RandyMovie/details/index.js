@@ -14,8 +14,8 @@ const MoviesDetails = (props) => {
     }
 
     const mediaResult = async () => Promise.all([
-      fetch(`https://api.aagavin.ca/media/${mediaId}`).then((r) => r.json()),
-      fetch(`https://api.aagavin.ca/media/${mediaId}/poster`).then((r) => r.json()),
+      fetch(`https://movie.randyhub.live/media/${mediaId}`).then((r) => r.json()),
+      fetch(`https://movie.randyhub.live/media/${mediaId}/poster`).then((r) => r.json()),
     ]);
 
     mediaResult().then((results) => {
@@ -26,7 +26,7 @@ const MoviesDetails = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   }, [props.match.params]);
 
-  const goBack = () => props.history.goBack();
+  const goBack = () => props.history.push('/movies-with-randy');
 
   if (Object.keys(media).length === 0) {
     return <>Loading...</>;

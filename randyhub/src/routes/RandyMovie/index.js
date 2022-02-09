@@ -17,7 +17,7 @@ const MoviesWithRandy = (props) => {
   }, [results]);
 
   const getSearchResults = () => {
-    const url = `https://proxy.aagavin.workers.dev/?https://v2.sg.media-imdb.com/suggestion/${query.charAt(0)}/${query.replace(' ', '_')}.json`;
+    const url = `https://proxy.randyhub.live/?https://v2.sg.media-imdb.com/suggestion/${query.charAt(0)}/${query.replace(' ', '_')}.json`;
 
     return fetch(url, {
       credentials: 'omit',
@@ -32,7 +32,7 @@ const MoviesWithRandy = (props) => {
   };
 
   const onSearch = async (e) => {
-    setQuery(e.target.value);
+    setQuery(e.target.value.trim().toLowerCase());
     if (query.length > 3) {
       const response = await getSearchResults();
       setResults(response?.d ?? []);
