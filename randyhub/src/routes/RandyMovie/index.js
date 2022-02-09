@@ -32,7 +32,7 @@ const MoviesWithRandy = (props) => {
   };
 
   const onSearch = async (e) => {
-    setQuery(e.target.value);
+    setQuery(e.target.value.trim().toLowerCase());
     if (query.length > 3) {
       const response = await getSearchResults();
       setResults(response?.d ?? []);
