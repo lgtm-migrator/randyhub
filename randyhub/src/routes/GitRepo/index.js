@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import Links from '../../common/Links';
 import styles from './styles.module.scss';
 import { simpleCircles, marblesVisualization } from './visualizations';
 
@@ -100,10 +99,11 @@ const GitRepo = () => {
             ))}
           </tbody>
         </table>
+        <br />
         {simpleCircles(contributorsData)}
+        <br />
         {marblesVisualization(contributorsData)}
       </div>
-      <Links />
     </>
   );
 };

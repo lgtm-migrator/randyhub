@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Links from '../../common/Links';
 import styles from './styles.module.scss';
 
 const CovidCounter = () => {
@@ -46,7 +45,7 @@ const CovidCounter = () => {
           <tfoot>
             <tr>
               <td colSpan="100%">
-                source:
+                Source:
                 {' '}
                 <a href="https://systems.jhu.edu/research/public-health/ncov/" rel="noreferrer" target="_blank">Johns Hopkins University</a>
               </td>
@@ -54,7 +53,6 @@ const CovidCounter = () => {
           </tfoot>
         </table>
       </div>
-      <Links />
     </>
   );
 };

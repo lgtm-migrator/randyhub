@@ -1,31 +1,29 @@
 import React from 'react';
-import {
-  Link,
-} from 'react-router-dom';
-import MashedPotatoes from '../../assets/mashedpotatoes.jpg';
-import CoolBro from '../../assets/CoolBro.jpg';
-import Links from '../../common/Links';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
+import CustomCursor from '../../common/CustomCursor';
 
 const CookingWithRandy = () => (
   <>
+    <CustomCursor />
     <div className={`${styles['cooking-with-randy']}`}>
-      <h1 className={`${styles.title}`}>The ONLY PLAUSIBLE 30 second meal from Randy</h1>
-      <h2>In the middle of an online game that you can&apos;t pause?</h2>
-      <h2>Perhaps you only have 30 seconds in between respawn timers?</h2>
-      <h2>Need sustenance for your gamer bod?</h2>
-      <h2>Look no further than this simple recipe</h2>
-
-      <h3>
+      <h1>Cooking with Randy</h1>
+      <p>
+        In the middle of an online game that you can&apos;t pause?
+        <br />
+        Perhaps you only have 30 seconds in between respawn timers?
+        <br />
+        Need sustenance for your gamer bod?
+        <br />
+        Look no further than this simple recipe.
+        <br />
+        <br />
         Ingredients:
         <ul>
           <li>Instant Mashed Potatoes </li>
-          <img alt="Not mashed potatoes" height="320px" src={MashedPotatoes} width="200px" />
-          <li className={`${styles.italics}`}>Literally nothing else</li>
+          <li><i>Literally nothing else</i></li>
         </ul>
-      </h3>
-
-      <h3>
+        <br />
         Steps:
         <ol>
           <li>Open box of instant mashed potatoes</li>
@@ -33,16 +31,12 @@ const CookingWithRandy = () => (
           <li>Pour into gamer mouth</li>
           <li>Respawn and return to your gaming</li>
         </ol>
-        <img alt="Cool bro" height="200px" src={CoolBro} width="142px" />
-      </h3>
-
-      <p>
+        <br />
         Bonus points:  Add Randy&apos;s
         {' '}
-        <Link to="/snack-of-champions">favourite snack of choice</Link>
+        <Link to="/snack-of-champions">favourite snack of choice.</Link>
       </p>
     </div>
-    <Links />
   </>
 );
 

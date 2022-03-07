@@ -1,0 +1,47 @@
+.dropdown {
+  opacity: 0;
+  position: absolute;
+  z-index: 1000;
+  background-color: #17141a;
+  width: 100vw;
+  height: 100vh;
+  top: -100vh;
+
+  .menu-content {
+    height: 50%;
+    max-width: 650px;
+    width: 50%;
+    margin: 0 auto;
+    padding-top: 25vh;
+  }
+}
+
+@media (max-width: 798px) {
+  .dropdown {
+    padding-left: 0;
+    font-size: 1em;
+
+    .menu-content {
+      padding-top: 10vh;
+      width: 90%;
+    }
+
+    h2 {
+      width: 100vw;
+    }
+  }
+}
+
+.btn-menu,
+.btn-exit {
+  position: absolute;
+  font-size: 2em;
+  color: #ff5349;
+  top: 50px;
+  right: 50px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 100;
+}

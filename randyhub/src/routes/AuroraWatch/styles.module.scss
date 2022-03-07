@@ -1,12 +1,8 @@
 
 .aurora-watch {
+  position: absolute;
+  left: 50%;
+  top: 50%;
   text-align: center;
-  padding: 0;
-  color: #222222;
-  line-height: 2em;
-
-  ol,
-  ul {
-    list-style-position: inside;
-  }
+  transform: translate(-50%, -50%);
 }

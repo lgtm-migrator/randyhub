@@ -136,11 +136,11 @@ void main() {
   vec3 color;
 
   vec3 cloudEffect = clouds(vVertexPosition.x, vVertexPosition.y);
-  color = cloudEffect + vec3(0.95, 0.8, 0.95);
+  color = cloudEffect + vec3(0.85, 0.9, 0.95);
 
   vec2 st = gl_FragCoord.xy / 1000.;
 
-  float distance = distance(st, vec2(0.5, 0.9));
+  float distance = distance(st, vec2(0.6, 0.9));
 
   // The farther the distance, the closer opacity should hit 1
   // Adding min to clamp max distance to 1
@@ -161,21 +161,21 @@ void main() {
   float n = noise(pos);
   vec4 noiseVec = vec4(vec3(n), 1.0);
 
-  float t = uTime / 150.;
+  float t = uTime / 300.;
 
-  vec2 xy = gl_FragCoord.xy / 800.;
+  vec2 xy = gl_FragCoord.xy / 8000.;
   float v = horizontal(xy, t);
 
   v += diagonal(xy, t);
   v += radial(xy, t);
-  v /= 3.0;
+  v /= 30.0;
 
   float r = map(-1.0, 1.0, 0.75, 0.6, sin(PI * v));
   float g = map(-2.0, 1.0, 0.0, 0.8, sin(PI * v));
 
-  g += log_map(-1.0, 1.5, 0.0, 0.1, cos(PI * v));
+  g += log_map(-1.0, 1.5, 0.1, 0.1, cos(PI * v));
 
-  float b = map(-5.0, 1.0, 0.75, 1.0, sin(PI * v));
+  float b = map(-5.0, 1.0, 0.0, 1.0, sin(PI * v));
   // gl_FragColor = vec4(pow(r, R), pow(g, R), pow(b, R), 1.0);
   gl_FragColor = vec4(finalColor.r + pow(r, R), finalColor.g + pow(g, R), finalColor.b + pow(b, R), opacity);
 }

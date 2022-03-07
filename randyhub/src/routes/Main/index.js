@@ -1,19 +1,26 @@
 import React from 'react';
-import styles from './styles.module.scss';
 import Curtain from './component/Curtain';
 import Links from '../../common/Links';
+import Chaos from '../../common/Chaos';
+import styles from './styles.module.scss';
 
-const Main = () => (
-  <div className={`${styles.body}`}>
-    <h1 className={`${styles.title}`}>
-      <span className={`${styles.italics}`}>RAN</span>
-      <span className={`${styles.bold}`}>DYHUB</span>
-    </h1>
-    <h2 className={`${styles.subtitle}`}>
-      sponsored by chaos
-    </h2>
-    <Curtain />
-    <Links />
-  </div>
-);
+const Main = (props) => {
+  const { setHueFilter, hueFilter } = props;
+  return (
+    <div className={`${styles.body}`}>
+      <h1 className={`${styles.title}`}>
+        RANDYHUB
+      </h1>
+      <h2 className={`${styles.subtitle}`}>
+        sponsored by chaos chat
+      </h2>
+      <Curtain />
+      <div className={`${styles.content}`}>
+        <Links toggleDropdown={() => {}} />
+        <Chaos setHueFilter={setHueFilter} hueFilter={hueFilter} />
+      </div>
+    </div>
+  );
+};
+
 export default Main;

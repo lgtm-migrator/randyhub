@@ -1,55 +1,7 @@
 .covid-dashboard {
   margin: 0 auto;
   width: calc(100% - 100px);
-  padding-left: 50px;
-  padding-bottom: 2em;
-
-  h1 {
-    font-family: bicyclette, sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: 5em;
-    line-height: 1em;
-    background: -webkit-linear-gradient(#333333, #111111);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin: 5vh 0;
-    max-width: 80vw;
-  }
-
-  table {
-    width: 90%;
-    border: 0.1rem solid #333333;
-    border-collapse: collapse;
-  }
-
-  table thead tr th {
-    background-color: #333333;
-    color: #eeeeee;
-    padding: 0.4em;
-    text-transform: capitalize;
-  }
-
-  table > tbody > tr:hover {
-    background-color: #77caae;
-    border: 1px solid #111111;
-  }
-
-  table > tbody > tr > td,
-  table > tfoot > tr > td {
-    border: 1px solid #111111;
-    padding: 0.4em;
-  }
-
-  table > tr > td:nth-child(3n+1) {
-    font-style: italic;
-  }
-
-  table > tr > td:nth-child(2n),
-  table > tr > td:nth-child(3n) {
-    text-align: right;
-  }
+  padding: 50px;
 }
 
 @media (max-width: 798px) {
@@ -58,12 +10,5 @@
     padding-bottom: 2em;
     padding-left: 10px;
     margin: 0;
-
-    h1 {
-      margin: 50px auto;
-      font-size: 3em;
-      text-align: center;
-      width: 100%;
-    }
   }
 }

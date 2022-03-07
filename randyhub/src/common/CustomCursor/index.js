@@ -34,7 +34,7 @@ const CustomCursor = () => {
   }
 
   function setMouthScaleAndRotation(event) {
-    if (mouth) {
+    if (mouth.current) {
       const target = mouth.current.getBoundingClientRect();
       const centerX = target.x + target.width / 2;
       const centerY = target.y + target.height / 2;

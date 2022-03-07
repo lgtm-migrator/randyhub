@@ -1,5 +1,4 @@
 import React from 'react';
-import Links from '../../common/Links';
 import styles from './styles.module.scss';
 
 const AuroraWatch = () => {
@@ -16,11 +15,10 @@ const AuroraWatch = () => {
             src="http://www.aurorawatch.ca/widget.php"
           />
         </a>
-        <div>
+        <p>
           Source: Aurora watch (click to go to)
-        </div>
+        </p>
       </div>
-      <Links />
     </>
   );
 };

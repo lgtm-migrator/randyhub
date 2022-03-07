@@ -1,46 +1,44 @@
 
 .movies-with-randy {
-    h1 {
-        color: #111;
-        font-size: 5rem;
-        text-align: center;
-    }
+  padding: 50px;
 
-    input[type="search" i] {
-        font-size: 3rem;
-        text-align: center;
-        margin-left: auto;
-        margin-right: auto;
-        border: 1px solid #333;
-        display: block;
-        width: 75%;
-    }
+  input[type='search' i] {
+    font-size: 3rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #333333;
+    display: block;
+    width: 100%;
+    margin-bottom: 50px;
+  }
 
-    li {
-        list-style-type: none;
-        display: block;
-        border: 1px #111 solid;
-        border-radius: .2em;
-        margin: .3em;
-        padding: .5em;
-    }
-    li:hover {
-        background-color: rgba(255, 255, 255, 50);
-        cursor: pointer;
-    }
+  li {
+    list-style-type: none;
+    display: block;
+    border: 1px #111111 solid;
+    border-radius: 0.2em;
+    margin: 0.3em;
+    padding: 0.5em;
+  }
 
-    li img {
-        display: inline-block;
-    }
-    li div {
-        display: inline-block;
-        vertical-align: top;
-        margin-top: 0;
-        padding-left: .5em;
-    }
-    li h2 {
-        margin-top: 0;
-    }
+  li:hover {
+    background-color: rgba(255, 255, 255, 50);
+    cursor: pointer;
+  }
 
+  li img {
+    display: inline-block;
+  }
 
+  li div {
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0;
+    padding-left: 0.5em;
+  }
+
+  li h2 {
+    margin-top: 0;
+  }
 }

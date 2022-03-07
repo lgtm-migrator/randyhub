@@ -1,0 +1,62 @@
+.chaos {
+  display: flex;
+  flex-direction: column;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 100;
+  font-size: 1.2em;
+  color: #ff5349;
+
+  a {
+    text-decoration: none !important;
+    color: #ff5349;
+    margin: 0 5px;
+    transition: 0.5s;
+
+    &:hover {
+      font-weight: 100;
+      color: #ffffff;
+    }
+  }
+
+  .horizontal-slider {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .hue-shift-thumb {
+    cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    background: #ffffff;
+    border: 5px solid #624da4;
+    border-radius: 100%;
+    display: block;
+    box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
+  }
+
+  .hue-shift-thumb.active {
+    background-color: grey;
+  }
+
+  .hue-shift-track {
+    position: relative;
+    background: #dddddd;
+  }
+
+  .hue-shift-track.hue-shift-track-0 {
+    background: #624da4;
+  }
+
+  .horizontal-slider .hue-shift-track {
+    top: 20px;
+    height: 4px;
+  }
+
+  .horizontal-slider .hue-shift-thumb {
+    top: 12px;
+    width: 10px;
+    outline: none;
+    height: 10px;
+    line-height: 38px;
+  }
+}

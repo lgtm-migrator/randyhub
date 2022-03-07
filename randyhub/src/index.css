@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f3f2eb;
+  background-color: #17141a;
 }
 
 code {
@@ -15,4 +15,101 @@ code {
 
 #root {
   overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1 {
+  color: #FF5349;
+  font-size: 5em;
+  line-height: 0.9em;
+  margin: 20px 20px 20px 0;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+h2 {
+  color: #FF5349;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 100;
+  font-size: 1.2em;
+}
+
+p {
+  color: #FF5349;
+  font-size: 1.2em;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+caption {
+  color: #FF5349;
+  font-size: 1.2em;
+  line-height: 0.9em;
+  margin: 20px 20px 0 0px;
+  font-family: adelle-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding-bottom: 20px;
+}
+
+td {
+  color: #FF5349;
+}
+
+a {
+  color: #ff938e;
+}
+
+table {
+  width: 90%;
+  border: 0.1rem solid #FF5349;
+  border-collapse: collapse;
+}
+
+table thead tr th {
+  background-color: #FF5349;
+  color: #eeeeee;
+  padding: 0.4em;
+  text-transform: capitalize;
+}
+
+table > tbody > tr:hover {
+  background-color: #272727;
+  border: 1px solid #111111;
+}
+
+table > tbody > tr > td,
+table > tfoot > tr > td {
+  border: 1px solid #111111;
+  padding: 0.4em;
+}
+
+table > tr > td:nth-child(3n+1) {
+  font-style: italic;
+}
+
+table > tr > td:nth-child(2n),
+table > tr > td:nth-child(3n) {
+  text-align: right;
+}
+
+
+@media (max-width: 798px) {
+  h1 {
+    margin: 50px auto;
+    font-size: 3em;
+    text-align: center;
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
 }

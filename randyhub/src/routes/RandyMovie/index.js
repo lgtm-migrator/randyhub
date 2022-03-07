@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
-import Links from '../../common/Links';
 import styles from './styles.module.scss';
 
 const MoviesWithRandy = (props) => {
@@ -48,8 +47,7 @@ const MoviesWithRandy = (props) => {
     <>
       <div className={`${styles['movies-with-randy']}`}>
         <h1>Movies with Randy</h1>
-        <p><i>Watch movies that Randy has Directed, Written, and Acted in: </i></p>
-
+        <p>Watch movies that Randy has directed, written, and acted in:</p>
         <input type="search" id="search" name="q" aria-label="Search through site content" onChange={onSearch} />
         <ul>
           {results.map((result) => {
@@ -70,7 +68,7 @@ const MoviesWithRandy = (props) => {
                   <div>
                     { /* eslint-disable-next-line react/jsx-one-expression-per-line */}
                     <h2>{result.l} <small>{result?.yr}</small></h2>
-                    <p>{result.s.split(',').map(() => 'Randy Hu').join(',')}</p>
+                    <p>{result.s.split(', ').map(() => 'Randy Hu').join(',')}</p>
                   </div>
                 </div>
               </li>
@@ -78,7 +76,6 @@ const MoviesWithRandy = (props) => {
           })}
         </ul>
       </div>
-      <Links />
     </>
   );
 };
