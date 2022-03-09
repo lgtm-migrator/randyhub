@@ -1,20 +1,22 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
 .links {
+  @include body-text;
+
   display: flex;
   flex-direction: column;
-  font-family: adelle-sans, sans-serif;
-  font-weight: 100;
-  font-size: 1.2em;
-  color: #ff5349;
+  font-size: 1em;
+  color: $main-color;
 
   a {
     text-decoration: none !important;
-    color: #ff5349;
+    color: $main-color;
     margin: 0 5px;
     transition: 0.5s;
 
     &:hover {
-      font-weight: 100;
-      color: #ffffff;
+      color: $text-light-color;
     }
   }
 }

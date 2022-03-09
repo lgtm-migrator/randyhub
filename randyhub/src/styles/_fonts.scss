@@ -1,0 +1,16 @@
+@mixin title-text {
+  font-family: adelle-sans, sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+@mixin body-text {
+  font-family: adelle-sans, sans-serif;
+  font-weight: 100;
+}
+
+@mixin caption-text {
+  font-family: adelle-sans, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

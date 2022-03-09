@@ -1,22 +1,13 @@
+@import '../../styles/colors';
+@import '../../styles/fonts';
+
 .chaos {
+  @include body-text;
+
   display: flex;
   flex-direction: column;
-  font-family: adelle-sans, sans-serif;
-  font-weight: 100;
-  font-size: 1.2em;
-  color: #ff5349;
-
-  a {
-    text-decoration: none !important;
-    color: #ff5349;
-    margin: 0 5px;
-    transition: 0.5s;
-
-    &:hover {
-      font-weight: 100;
-      color: #ffffff;
-    }
-  }
+  font-size: 1em;
+  color: $main-color;
 
   .horizontal-slider {
     width: 100%;
@@ -27,24 +18,20 @@
     cursor: pointer;
     position: absolute;
     z-index: 100;
-    background: #ffffff;
-    border: 5px solid #624da4;
+    background: $text-light-color;
+    border: 5px solid $inverted-main-color;
     border-radius: 100%;
     display: block;
     box-shadow: 0 0 2px 0 rgb(0 0 0 / 44%);
   }
 
-  .hue-shift-thumb.active {
-    background-color: grey;
-  }
-
   .hue-shift-track {
     position: relative;
-    background: #dddddd;
+    background: $text-light-color;
   }
 
   .hue-shift-track.hue-shift-track-0 {
-    background: #624da4;
+    background: $inverted-main-color;
   }
 
   .horizontal-slider .hue-shift-track {

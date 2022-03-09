@@ -1,3 +1,4 @@
+@import '../../styles/colors';
 
 .movies-with-randy {
   padding: 50px;
@@ -7,7 +8,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid #333333;
+    border: 1px solid $main-color;
     display: block;
     width: 100%;
     margin-bottom: 50px;
@@ -16,7 +17,7 @@
   li {
     list-style-type: none;
     display: block;
-    border: 1px #111111 solid;
+    border: 1px $main-color solid;
     border-radius: 0.2em;
     margin: 0.3em;
     padding: 0.5em;

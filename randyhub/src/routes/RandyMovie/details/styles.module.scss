@@ -1,4 +1,6 @@
 
+@import '../../../styles/colors';
+
 .movie-details {
   h1 {
     display: block;
@@ -13,9 +15,9 @@
 
   div {
     display: block;
-    color: black;
+    color: $main-color;
     font-weight: bolder;
-    background-color: #ff5349;
+    background-color: $background-light-color;
     cursor: pointer;
     width: 100%;
     margin: 0 auto;

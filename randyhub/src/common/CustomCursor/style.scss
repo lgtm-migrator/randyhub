@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 .cursor-circle {
   position: fixed;
   background-color: white;
@@ -90,7 +92,7 @@
 }
 
 #slider-checkbox:checked + .slider {
-  background-color: #ff5349;
+  background-color: $main-color;
 }
 
 #slider-checkbox:checked + .slider:before {

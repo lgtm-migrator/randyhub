@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import MenuDropdown from './common/MenuDropdown';
 import Main from './routes/Main';
-import './index.css';
 
 const App = () => {
   const [hueFilter, setHueFilter] = useState(0);
