@@ -10,7 +10,9 @@ const MenuDropdown = (props) => {
   const [toggle, setToggle] = useState(false);
   const isInitialMount = useRef(true);
   const menu = useRef(null);
-  const { setHueFilter, hueFilter } = props;
+  const {
+    setHueFilter, hueFilter, randyCursor, setRandyCursor,
+  } = props;
 
   const toggleDropdown = () => {
     setToggle(!toggle);
@@ -60,6 +62,8 @@ const MenuDropdown = (props) => {
           <Chaos
             hueFilter={hueFilter}
             setHueFilter={setHueFilter}
+            randyCursor={randyCursor}
+            setRandyCursor={setRandyCursor}
           />
         </div>
       </div>

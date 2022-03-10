@@ -2,14 +2,13 @@ import {
   gsap,
 } from 'gsap';
 import React, {
-  useEffect, useState, useRef,
+  useEffect, useRef,
 } from 'react';
 import sampleMouth from '../../assets/coolhead.png';
 import './style.scss';
 
 const NewCustomCursor = (props) => {
   const { count } = props;
-  const [cursorToggled, setCursorToggled] = useState(false);
   const circle = useRef(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const mouths = Array(count).fill().map(() => (useRef(null)));
@@ -79,17 +78,13 @@ const NewCustomCursor = (props) => {
     gsap.ticker.add(updateTicker);
   });
 
-  function toggleSlider() {
-    setCursorToggled(!cursorToggled);
-  }
-
   const randies = [];
   for (let i = 0; i < count; i += 1) {
     randies.push(
       <img
         src={sampleMouth}
         alt="Img"
-        className={`randy-head ${!cursorToggled ? 'disabled' : ''}`}
+        className="randy-head"
         ref={mouths[i]}
         key={i}
       />,
@@ -100,17 +95,10 @@ const NewCustomCursor = (props) => {
     <>
       <div className="stellar-cursor">
         <div
-          className={`cursor-circle ${!cursorToggled ? 'disabled' : ''}`}
+          className="cursor-circle"
           ref={circle}
         />
         {randies}
-      </div>
-      <div className="toggle-cursor">
-        <img className="slider-hint" src={sampleMouth} alt="Click the toggle..." />
-        <label htmlFor="slider-checkbox" className="switch">
-          <input onClick={toggleSlider} id="slider-checkbox" type="checkbox" />
-          <span className="slider round" />
-        </label>
       </div>
     </>
   );

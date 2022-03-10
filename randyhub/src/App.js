@@ -6,10 +6,12 @@ import {
   BrowserRouter, Route, Switch,
 } from 'react-router-dom';
 import MenuDropdown from './common/MenuDropdown';
+import NewCustomCursor from './common/NewCustomCursor';
 import Main from './routes/Main';
 
 const App = () => {
   const [hueFilter, setHueFilter] = useState(0);
+  const [randyCursor, setRandyCursor] = useState(0);
   const isInitialMount = useRef(true);
 
   useEffect(() => {
@@ -26,14 +28,18 @@ const App = () => {
 
   return (
     <div id="app" style={{ filter: `hue-rotate(${hueFilter * 3.6}deg)` }}>
+      {randyCursor > 0
+      && <NewCustomCursor count={50} />}
       <BrowserRouter>
         <MenuDropdown
           hueFilter={hueFilter}
           setHueFilter={setHueFilter}
+          randyCursor={randyCursor}
+          setRandyCursor={setRandyCursor}
         />
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/" render={(props) => <Main {...props} hueFilter={hueFilter} setHueFilter={setHueFilter} />} />
+            <Route exact path="/" render={(props) => <Main {...props} hueFilter={hueFilter} setHueFilter={setHueFilter} randyCursor={randyCursor} setRandyCursor={setRandyCursor} />} />
             <Route component={React.lazy(() => import('./routes/SnackOfChampions'))} path="/snack-of-champions" />
             <Route component={React.lazy(() => import('./routes/CookingWithRandy'))} path="/cooking-with-randy" />
             <Route component={React.lazy(() => import('./routes/GitRepo'))} path="/git-repo" />

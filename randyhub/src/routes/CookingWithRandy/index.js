@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import NewCustomCursor from '../../common/NewCustomCursor';
+import CustomCursor from '../../common/CustomCursor';
 
 const CookingWithRandy = () => (
   <>
-    <NewCustomCursor count={50} />
+    <CustomCursor />
     <div className={`${styles['cooking-with-randy']}`}>
       <h1>Cooking with Randy</h1>
       <p>
