@@ -5,7 +5,7 @@ import NewCustomCursor from '../../common/NewCustomCursor';
 
 const CookingWithRandy = () => (
   <>
-    <NewCustomCursor />
+    <NewCustomCursor count={50} />
     <div className={`${styles['cooking-with-randy']}`}>
       <h1>Cooking with Randy</h1>
       <p>
