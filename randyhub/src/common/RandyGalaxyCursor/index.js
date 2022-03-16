@@ -7,13 +7,13 @@ import React, {
 import sampleMouth from '../../assets/coolhead.png';
 import './style.scss';
 
-const NewCustomCursor = (props) => {
+const RandyGalaxyCursor = (props) => {
   const { count } = props;
   const circle = useRef(null);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const mouths = Array(count).fill().map(() => (useRef(null)));
   const start = new Date();
-  const mouse = { x: 0, y: 0 };
+  const mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
   const setter = Array(count).fill().map(() => ({ x: 0, y: 0 }));
   const speed = 0.015;
   const position = Array(count)
@@ -104,4 +104,4 @@ const NewCustomCursor = (props) => {
   );
 };
 
-export default NewCustomCursor;
+export default RandyGalaxyCursor;

@@ -6,7 +6,7 @@ import {
   BrowserRouter, Route, Switch,
 } from 'react-router-dom';
 import MenuDropdown from './common/MenuDropdown';
-import NewCustomCursor from './common/NewCustomCursor';
+import RandyGalaxyCursor from './common/RandyGalaxyCursor';
 import Main from './routes/Main';
 
 const App = () => {
@@ -22,6 +22,7 @@ const App = () => {
         setHueFilter(retrievedHueValue);
       }
     } else {
+      setRandyCursor(0);
       localStorage.setItem('randyhub-hue-filter', hueFilter);
     }
   }, [hueFilter]);
@@ -29,7 +30,7 @@ const App = () => {
   return (
     <div id="app" style={{ filter: `hue-rotate(${hueFilter * 3.6}deg)` }}>
       {randyCursor > 0
-      && <NewCustomCursor count={50} />}
+      && <RandyGalaxyCursor count={50} />}
       <BrowserRouter>
         <MenuDropdown
           hueFilter={hueFilter}
