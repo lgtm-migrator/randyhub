@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import CustomCursor from '../../common/CustomCursor';
+import BreakfastOfChampionsCursor from '../../common/BreakfastOfChampionsCursor';
 
 const CookingWithRandy = () => (
   <>
-    <CustomCursor />
+    <BreakfastOfChampionsCursor />
     <div className={`${styles['cooking-with-randy']}`}>
       <h1>Cooking with Randy</h1>
       <p>

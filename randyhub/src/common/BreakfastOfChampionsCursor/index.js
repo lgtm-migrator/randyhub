@@ -8,7 +8,7 @@ import sampleImage from '../../assets/mashedpotatoes.jpg';
 import sampleMouth from '../../assets/coolhead.png';
 import './style.scss';
 
-const CustomCursor = () => {
+const BreakfastOfChampionsCursor = () => {
   const [cursorToggled, setCursorToggled] = useState(false);
   const circle = useRef(null);
   const follow = useRef(null);
@@ -92,24 +92,26 @@ const CustomCursor = () => {
 
   return (
     <>
+      { cursorToggled && (
       <div className="cursor">
         <div
-          className={`cursor-circle ${!cursorToggled ? 'disabled' : ''}`}
+          className="cursor-circle"
           ref={circle}
         />
         <img
           src={sampleImage}
           alt="Img"
-          className={`cursor-circle-follow ${!cursorToggled ? 'disabled' : ''}`}
+          className="cursor-circle-follow"
           ref={follow}
         />
         <img
           src={sampleMouth}
           alt="Img"
-          className={`cursor-circle-follow ${!cursorToggled ? 'disabled' : ''}`}
+          className="cursor-circle-follow"
           ref={mouth}
         />
       </div>
+      )}
       <div className="toggle-cursor">
         <img className="slider-hint" src={sampleMouth} alt="Click the toggle..." />
         <label htmlFor="slider-checkbox" className="switch">
@@ -121,4 +123,4 @@ const CustomCursor = () => {
   );
 };
 
-export default CustomCursor;
+export default BreakfastOfChampionsCursor;
