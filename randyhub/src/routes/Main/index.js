@@ -6,7 +6,7 @@ import styles from './styles.module.scss';
 
 const Main = (props) => {
   const {
-    setHueFilter, hueFilter, randyCursor, setRandyCursor,
+    setHueFilter, hueFilter, randyCursor, setRandyCursor, globalFont, setGlobalFont,
   } = props;
   return (
     <div className={`${styles.body}`}>
@@ -24,6 +24,8 @@ const Main = (props) => {
           hueFilter={hueFilter}
           randyCursor={randyCursor}
           setRandyCursor={setRandyCursor}
+          globalFont={globalFont}
+          setGlobalFont={setGlobalFont}
         />
       </div>
     </div>

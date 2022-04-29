@@ -1,6 +1,21 @@
 @import '_fonts';
 @import '_colors';
 
+@font-face {
+  font-family: Braille;
+  src: url('../assets/fonts/Braille1.ttf');
+}
+
+@font-face {
+  font-family: Damgram;
+  src: url('../assets/fonts/Damgram.ttf');
+}
+
+@font-face {
+  font-family: Mortina;
+  src: url('../assets/fonts/Mortina.otf');
+}
+
 body {
   margin: 0;
   font-family:
