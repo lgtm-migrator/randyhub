@@ -5,7 +5,7 @@ const MoviesDetails = (props) => {
   const [media, setMedia] = useState({});
 
   useEffect(() => {
-    const { mediaId } = props.match.params;
+    const { match: { params: { mediaId } } } = props;
 
     const mediaCache = sessionStorage.getItem(mediaId);
     if (mediaCache !== null) {
@@ -26,7 +26,10 @@ const MoviesDetails = (props) => {
   // eslint-disable-next-line react/destructuring-assignment
   }, [props.match.params]);
 
-  const goBack = () => props.history.push('/movies-with-randy');
+  const goBack = () => {
+    const { history } = props;
+    return history.push('/movies-with-randy');
+  };
 
   if (Object.keys(media).length === 0) {
     return <>Loading...</>;

@@ -40,7 +40,8 @@ const MoviesWithRandy = (props) => {
 
   const mediaClick = (id) => {
     const path = `/movies-with-randy/${id}`;
-    props?.history?.push(path);
+    const { history } = props;
+    history?.push(path);
   };
 
   return (
