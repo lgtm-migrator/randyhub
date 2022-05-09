@@ -37,6 +37,7 @@ const App = () => {
         setGlobalFont(retrievedFontValue);
       }
     } else {
+      setRandyCursor(0);
       localStorage.setItem('randyhub-global-font', globalFont);
     }
   }, [globalFont]);
