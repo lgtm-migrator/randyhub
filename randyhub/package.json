@@ -41,7 +41,7 @@
   },
   "engineStrict": true,
   "devDependencies": {
-    "@babel/eslint-parser": "^7.17.0",
+    "@babel/eslint-parser": "^7.18.2",
     "@babel/preset-react": "^7.17.12",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.5",
