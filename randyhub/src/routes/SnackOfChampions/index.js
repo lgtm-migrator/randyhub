@@ -1,11 +1,16 @@
-import React from 'react';
-import Snack from '../../assets/snackofchampions.jpg';
-import styles from './style.module.scss';
+import React, {
+  PureComponent,
+} from 'react';
+import WaterfallType from './WaterfallType';
 
-const SnackOfChampions = () => (
-  <>
-    <img className={`${styles.snack}`} alt="Snack of Champions." src={Snack} />
-  </>
-);
+class SnackOfChampions extends PureComponent {
+  render() {
+    return (
+      <div id="snack-of-champions">
+        <WaterfallType />
+      </div>
+    );
+  }
+}
 
 export default SnackOfChampions;
