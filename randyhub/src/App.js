@@ -9,11 +9,13 @@ import MenuDropdown from './common/MenuDropdown';
 import RandyGalaxyCursor from './common/RandyGalaxyCursor';
 import Main from './routes/Main';
 import FontChaos from './common/FontChaos';
+import Confetti from './common/Confetti';
 
 const App = () => {
   const [hueFilter, setHueFilter] = useState(0);
   const [randyCursor, setRandyCursor] = useState(0);
   const [globalFont, setGlobalFont] = useState(0);
+  const [confetti, setConfetti] = useState(0);
   const isInitialMount = useRef(true);
 
   useEffect(() => {
@@ -44,6 +46,7 @@ const App = () => {
 
   return (
     <div id="app" style={{ filter: `hue-rotate(${hueFilter * 3.6}deg)` }}>
+      <Confetti confetti={confetti} setConfetti={setConfetti} />
       <FontChaos globalFont={globalFont} />
       {randyCursor > 0
       && <RandyGalaxyCursor count={50} />}
@@ -55,10 +58,28 @@ const App = () => {
           setRandyCursor={setRandyCursor}
           globalFont={globalFont}
           setGlobalFont={setGlobalFont}
+          confetti={confetti}
+          setConfetti={setConfetti}
         />
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path="/" render={(props) => <Main {...props} hueFilter={hueFilter} setHueFilter={setHueFilter} randyCursor={randyCursor} setRandyCursor={setRandyCursor} globalFont={globalFont} setGlobalFont={setGlobalFont} />} />
+            <Route
+              exact
+              path="/"
+              render={(props) => (
+                <Main
+                  {...props}
+                  hueFilter={hueFilter}
+                  setHueFilter={setHueFilter}
+                  randyCursor={randyCursor}
+                  setRandyCursor={setRandyCursor}
+                  globalFont={globalFont}
+                  setGlobalFont={setGlobalFont}
+                  confetti={confetti}
+                  setConfetti={setConfetti}
+                />
+              )}
+            />
             <Route component={React.lazy(() => import('./routes/SnackOfChampions'))} path="/snack-of-champions" />
             <Route component={React.lazy(() => import('./routes/CookingWithRandy'))} path="/cooking-with-randy" />
             <Route component={React.lazy(() => import('./routes/GitRepo'))} path="/git-repo" />

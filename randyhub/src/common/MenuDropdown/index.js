@@ -11,7 +11,8 @@ const MenuDropdown = (props) => {
   const isInitialMount = useRef(true);
   const menu = useRef(null);
   const {
-    setHueFilter, hueFilter, randyCursor, setRandyCursor, globalFont, setGlobalFont,
+    setHueFilter, hueFilter, randyCursor, setRandyCursor, globalFont,
+    setGlobalFont, confetti, setConfetti,
   } = props;
 
   const toggleDropdown = () => {
@@ -66,6 +67,8 @@ const MenuDropdown = (props) => {
             setRandyCursor={setRandyCursor}
             globalFont={globalFont}
             setGlobalFont={setGlobalFont}
+            confetti={confetti}
+            setConfetti={setConfetti}
           />
         </div>
       </div>
